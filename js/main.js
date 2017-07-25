@@ -14,11 +14,13 @@ function myFunction(){
 myFunction();
 $('button').hover(function(){
   $(this).css("background-color","lightgrey");
-  
+
 },
 function(){
   $(this).css("background-color","white");
 });
-
+$('button').click(function(){
+  $(this).remove();
+});
 
 });
