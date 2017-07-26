@@ -12,5 +12,11 @@ alphabet{
   display: inline-block;
 }
 body{
-  background-color:#86EDE6  ;
+  background-color:#86EDE6 ;
+}
+li{
+  list-style: none;
+  float: left;
+  font-size: 30px;
+  padding: 8px;
 }
