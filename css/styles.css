@@ -2,8 +2,15 @@ button{
   background-color:white;
   font-size: 24px;
   margin-left: 5px;
-
+  width: 30px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 3px;
+  border-style: solid;
 }
 alphabet{
   display: inline-block;
+}
+body{
+  background-color:#86EDE6  ;
 }
