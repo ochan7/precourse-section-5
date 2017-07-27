@@ -3,8 +3,8 @@ var letters = 'abcdefghijklmnopqrstuvwxyz';
 var lettersArray = letters.split('');
 var wordBank = ['squirtle','pikachu','charmander',
 'magikarp','bulbasaur','onyx','pidgey','caterpie',
-'gyrados','machoke','staryu','grimer','ghastly',
-'raichu','charazard','blastoise','sandshrew',
+'gyarados','machoke','staryu','grimer','ghastly',
+'raichu','charizard','blastoise','sandshrew',
 'electrabuzz'];
 var word = wordBank[Math.floor(Math.random()*wordBank.length)];
 
@@ -40,43 +40,63 @@ function myFunction(){
 function whichLetter(){}
 myFunction();
 $('button').hover(function(){
-  $(this).css("background-color","lightgrey");
+  $(this).addClass('on');
 
 },
 
 
 function(){
-  $(this).css("background-color","white");
+  $(this).removeClass('on');
 });
 
-//lives ounter
+//lives counter
 document.getElementById('lives').innerHTML = lives;
 
 $('button').click(function(){
-var count=0
-var button = this.id;
+var count=0;
+
   for(var i =0; i< word.length;i++){
     if(this.innerHTML === document.getElementsByTagName('li')[i].id){
       document.getElementsByTagName('li')[i].innerHTML = wordArray[i];
       count+=1;
-      //console.log(document.getElementsByTagName('li')[i].id)
     }}
+
   if(count !== 0){
     this.disabled = true;
     $(this).css('background-color','green');
   }else{
-  this.disabled = true;
-  $(this).css('background-color','red')
-  lives -=1;
-document.getElementById('lives').innerHTML = lives;}
-  console.log(this.id, lives, count)
-  if(lives ===0){
-    $(':button').prop('disabled',true)
-    }
+    this.disabled = true;
+    $(this).css('background-color','red')
+    lives -=1;
+    document.getElementById('lives').innerHTML = lives
+  };
 
+  // checks when there are no more lives
+  if(lives ===0){
+    $(':button').prop('disabled',true);
+    document.getElementsByTagName('h2')[0].innerHTML = '';
+    var solution = document.getElementById('lives');
+    solution.innerHTML = "Game over the correct word is " + word;
+  };
+
+  var correctWord = function(){
+    var counter =0;
+    var arr=  document.getElementsByTagName('li');
+    for(var i =0; i< arr.length; i++){
+      if(arr[i].innerHTML ==='-'){
+        counter +=1; break;}
+    }
+    if(counter === 0){
+      document.getElementsByTagName('h2')[0].innerHTML = '';
+      var leftOver = document.getElementById('lives');
+      leftOver.innerHTML = "Well done you got the right answer!! " + word;
+      $(':button').prop('disabled',true).c;
+    };
+    };
+
+correctWord();
 });
 
-//no more lives
 
 
 
