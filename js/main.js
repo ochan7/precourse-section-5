@@ -1,7 +1,7 @@
 $(document).ready(function(){
 var letters = 'abcdefghijklmnopqrstuvwxyz';
 var lettersArray = letters.split('');
-var wordBank = ['elephant','cheetah','trout','leopard','cat','dog','jellyfish','squid','octopus','minion']
+var wordBank = ['squirtle','pikachu','charmander','magikarp','bulbasaur','onyx','pidgey','caterpie'];
 var word = wordBank[Math.floor(Math.random()*wordBank.length)];
 var counter = 0;
 
