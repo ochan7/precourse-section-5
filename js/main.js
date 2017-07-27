@@ -3,10 +3,10 @@ var letters = 'abcdefghijklmnopqrstuvwxyz';
 var lettersArray = letters.split('');
 var wordBank = ['squirtle','pikachu','charmander','magikarp','bulbasaur','onyx','pidgey','caterpie'];
 var word = wordBank[Math.floor(Math.random()*wordBank.length)];
-var counter = 0;
 
 var wordArray = word.split('');
-
+var lives = 10
+//creates dashes representing the letters to be found
 function hiddenFunction(){
   for(var i =0; i<wordArray.length; i++){
   var btn = document.createElement("li");
@@ -20,7 +20,7 @@ function hiddenFunction(){
 hiddenFunction();
 
 
-
+// creates the alphabet
 function myFunction(){
   for(var i =0; i<lettersArray.length; i++){
   var btn = document.createElement("BUTTON");
@@ -44,20 +44,30 @@ $('button').hover(function(){
 function(){
   $(this).css("background-color","white");
 });
-$('button').click(function(){
-//var re = new RegExp(this.innerHTML, 'g');
 
+
+
+$('button').click(function(){
+var count=0
+var button = this.id;
   for(var i =0; i< word.length;i++){
     if(this.innerHTML === document.getElementsByTagName('li')[i].id){
       document.getElementsByTagName('li')[i].innerHTML = wordArray[i];
+      count+=1;
       //console.log(document.getElementsByTagName('li')[i].id)
-    };
-  };
-
-
-console.log(this.innerHTML,document.getElementsByTagName('li')[0].id)
-  $(this).remove();
-
+    }}
+  if(count !== 0){
+    this.disabled = true;
+    $(this).css('background-color','green');
+  }else{
+  this.disabled = true;
+  $(this).css('background-color','red')
+  lives -=1;}
+  console.log(this.id, lives, count)
 });
+
+
+
+
 
 });
