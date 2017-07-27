@@ -1,7 +1,11 @@
 $(document).ready(function(){
 var letters = 'abcdefghijklmnopqrstuvwxyz';
 var lettersArray = letters.split('');
-var wordBank = ['squirtle','pikachu','charmander','magikarp','bulbasaur','onyx','pidgey','caterpie'];
+var wordBank = ['squirtle','pikachu','charmander',
+'magikarp','bulbasaur','onyx','pidgey','caterpie',
+'gyrados','machoke','staryu','grimer','ghastly',
+'raichu','charazard','blastoise','sandshrew',
+'electrabuzz'];
 var word = wordBank[Math.floor(Math.random()*wordBank.length)];
 
 var wordArray = word.split('');
@@ -66,7 +70,13 @@ var button = this.id;
   lives -=1;
 document.getElementById('lives').innerHTML = lives;}
   console.log(this.id, lives, count)
+  if(lives ===0){
+    $(':button').prop('disabled',true)
+    }
+
 });
+
+//no more lives
 
 
 
