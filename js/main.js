@@ -45,7 +45,8 @@ function(){
   $(this).css("background-color","white");
 });
 
-
+//lives ounter
+document.getElementById('lives').innerHTML = lives;
 
 $('button').click(function(){
 var count=0
@@ -62,7 +63,8 @@ var button = this.id;
   }else{
   this.disabled = true;
   $(this).css('background-color','red')
-  lives -=1;}
+  lives -=1;
+document.getElementById('lives').innerHTML = lives;}
   console.log(this.id, lives, count)
 });
 
