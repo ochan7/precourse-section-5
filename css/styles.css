@@ -30,3 +30,7 @@ button[disabled]{
 .on{
   background-color: yellow;
 }
+canvas {
+    border: 3px #CCC solid;
+    background-color: white;
+}
