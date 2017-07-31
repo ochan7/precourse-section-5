@@ -17,6 +17,7 @@ var mainContext = mainCanvas.getContext("2d");
 
 var canvasWidth = mainCanvas.width;
 var canvasHeight = mainCanvas.height;
+mainContext.lineWidth = 5;
 var animationArray =[
 function drawBase1(){
       mainContext.clearRect(0, 0, canvasWidth, canvasHeight);
@@ -35,8 +36,8 @@ function drawBase2(){
 
 function drawBase3(){
   mainContext.beginPath();
-  mainContext.moveTo(50,50);
-  mainContext.lineTo(250,50);
+  mainContext.moveTo(47.5,50);
+  mainContext.lineTo(252.5,50);
   mainContext.stroke();
 },
 
@@ -115,7 +116,7 @@ function myFunction(){
   };
 };
 
-
+//change colour of letter when hovering
 function whichLetter(){}
 myFunction();
 $('button').hover(function(){
@@ -172,6 +173,12 @@ var count=0;
       var leftOver = document.getElementById('lives');
       leftOver.innerHTML = "Well done you got the right answer!! " + word;
       $(':button').prop('disabled',true);
+      var playme = document.getElementById('themetune');
+      playme.src='music/116-victory-vs-trainer-.mp3';
+      playme.load();
+      playme.play();
+      console.log(document.getElementsByTagName('audio'))
+
     };
     };
 
