@@ -159,6 +159,10 @@ var count=0;
     document.getElementsByTagName('h2')[0].innerHTML = '';
     var solution = document.getElementById('lives');
     solution.innerHTML = "Game over the correct word is " + word;
+    var playme = document.getElementById('themetune');
+    playme.src='music/131-lavender-town-s-theme.mp3';
+    playme.load();
+    playme.play();
   };
 
   var correctWord = function(){
