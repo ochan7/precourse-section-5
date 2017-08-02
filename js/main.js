@@ -41,6 +41,8 @@ var word = wordBank[Math.floor(Math.random()*wordBank.length)];
 var wordArray = word.split('');
 var lives = 10
 
+
+
 //animations
 var mainCanvas = document.querySelector("#myCanvas");
 var mainContext = mainCanvas.getContext("2d");
@@ -161,7 +163,7 @@ function(){
 
 //lives counter
 document.getElementById('lives').innerHTML = lives;
-
+//checks whether selected letter match
 $('button').click(function(){
 var count=0;
 
@@ -173,10 +175,10 @@ var count=0;
 
   if(count !== 0){
     this.disabled = true;
-    $(this).css('background-color','green');
+    $(this).css('background-color','#00FF46');
   }else{
     this.disabled = true;
-    $(this).css('background-color','red')
+    $(this).css('background-color','#FF4C40')
     lives -=1;
     // run the animation
     animationArray[9-lives]();
@@ -188,7 +190,7 @@ var count=0;
     $(':button').prop('disabled',true);
     document.getElementsByTagName('h2')[0].innerHTML = '';
     var solution = document.getElementById('lives');
-    solution.innerHTML = "Game over the correct word is " + word;
+    solution.innerHTML = "Game over :( the correct pokemon is " + word + ". Why don't you try again?";
     var playme = document.getElementById('themetune');
     playme.src='music/131-lavender-town-s-theme.mp3';
     playme.load();
