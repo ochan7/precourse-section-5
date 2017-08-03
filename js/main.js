@@ -147,20 +147,25 @@ function myFunction(){
 
   };
 };
+myFunction();
 
 //change colour of letter when hovering
-function whichLetter(){}
-myFunction();
 $('button').hover(function(){
   $(this).addClass('on');
-
 },
-
-
 function(){
   $(this).removeClass('on');
 });
 
+//produces a try again link
+//<a href="javascript:location.reload(true)">Try again</a>
+function tryAgain(){
+  var a = document.createElement('a');
+  var t = document.createTextNode('Try again ?');
+  a.appendChild(t);
+  a.href = 'javascript:location.reload(true)';
+  document.getElementById('lives').appendChild(a);
+};
 //lives counter
 document.getElementById('lives').innerHTML = lives;
 //checks whether selected letter match
@@ -190,11 +195,12 @@ var count=0;
     $(':button').prop('disabled',true);
     document.getElementsByTagName('h2')[0].innerHTML = '';
     var solution = document.getElementById('lives');
-    solution.innerHTML = "Game over :( the correct pokemon is " + word + ". Why don't you try again?";
+    solution.innerHTML = "Game over :( the correct pokemon is " + word.toUpperCase() + ". Why don't you ";
     var playme = document.getElementById('themetune');
     playme.src='music/131-lavender-town-s-theme.mp3';
     playme.load();
     playme.play();
+    tryAgain();
   };
 
   var correctWord = function(){
@@ -204,17 +210,18 @@ var count=0;
       if(arr[i].innerHTML ==='-'){
         counter +=1; break;}
     }
+    //checks if you win
     if(counter === 0){
       document.getElementsByTagName('h2')[0].innerHTML = '';
       var leftOver = document.getElementById('lives');
-      leftOver.innerHTML = "Well done you got the right answer!! " + word;
+      leftOver.innerHTML = "Well done you got the right answer!! " + word.toUpperCase() + ". Would you like to ";
       $(':button').prop('disabled',true);
       var playme = document.getElementById('themetune');
       playme.src='music/116-victory-vs-trainer-.mp3';
       playme.load();
       playme.play();
       console.log(document.getElementsByTagName('audio'))
-
+      tryAgain();
     };
     };
 
